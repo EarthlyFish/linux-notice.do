@@ -3,8 +3,19 @@
 命令：ps aux
 2.获取某一个名称为tomcat的进程
 命令：ps aux |grep tomcat
+
+
 给某个文件夹加权限：
 1.给/tmp/inspur文件夹加admin用户：chown admin /tmp/inspur
 2.给/tmp下所有文件夹加admin用户：chown  -R  admin /tmp/inspur
-获取磁盘
+
+
+获取磁盘：
 命令：fdisk -l
+
+dd命令实现磁盘的写入和读取：
+nc –l 7000|dd of=/dev/sda      ##当前机器开启端口7000，dd命令等待数据写入到/dev/sda
+dd if=/dev/xvda bs=32M | nc 10.110.11.110 7000  ##表示将/dev/xvda磁盘的文件写到上面的上机器(10.110.11.110)，通过端口7000
+
+centos 7更改了防火墙规则，通过：
+systemctl stop firewalld.service关闭防火墙
